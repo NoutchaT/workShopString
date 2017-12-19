@@ -7,13 +7,13 @@ use PHPUnit\Framework\TestCase;
 class StrTest extends TestCase
 {
 
-    public function testExo3()
+    public function testExo4()
     {
-        $this->assertSame(Str::toSnakeCase('my_string') , 'my_string'); // true
-        $this->assertSame(Str::toSnakeCase('myString') , 'my_string'); // true
-        $this->assertSame(Str::toSnakeCase('my-string') , 'my_string'); // true
-        $this->assertSame(Str::toSnakeCase('my string') , 'my_string'); // true
-        $this->assertSame(Str::toSnakeCase('My String') , 'my_string');
+        $this->assertSame(Str::toSlugCase('my_string'), 'my-string'); // true
+        $this->assertSame(Str::toSlugCase('myString'), 'my-string'); // true
+        $this->assertSame(Str::toSlugCase('my-string') , 'my-string'); // true
+        $this->assertSame(Str::toSlugCase('my string') , 'my-string'); // true
+        $this->assertSame(Str::toSlugCase('My String') ,'my-string'); // true
 
     }
 

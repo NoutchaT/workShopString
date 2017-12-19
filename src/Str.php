@@ -77,4 +77,12 @@ class Str
             ->strtolower()
             ->replace('__', '_');
     }
+
+    public function slugCase () {
+        $needle = array('_', ' ','?');
+        return $this->replace($needle, '-')
+            ->pregreplace('/(.)(?=[A-Z])/', '$1-')
+            ->strtolower()
+            ->replace('--', '-');
+    }
 }
