@@ -7,11 +7,14 @@ use PHPUnit\Framework\TestCase;
 class StrTest extends TestCase
 {
 
-    public function testExo2()
+    public function testExo2_5()
     {
-        $string = Str::on('my_string')->camelCase()->toString();
 
-        $this->assertSame('myString', $string);
+        $this->assertSame(Str::toCamelCase('my_string') , 'myString'); // true
+        $this->assertSame(Str::toCamelCase('myString') , 'myString'); // true
+        $this->assertSame(Str::toCamelCase('my-string') , 'myString'); // true
+        $this->assertSame(Str::toCamelCase('my string') , 'myString'); // true
+        $this->assertSame(Str::toCamelCase('My String') , 'myString'); // true
     }
 
 

@@ -46,18 +46,27 @@ class Str
         return $this->string;
     }
 
-    public function camelCase(){
-        $needle = array('-', '_','?');
-        return $this->replace($needle, ' ')
-            ->strtolower()
-            ->ucwords()
-            ->replace(' ', '')
-            ->lcfirst();
-    }
+
 
     public function toString(){
 
         return $this->__toString();
     }
 
+    public static function __callStatic($name, $arguments)
+    {
+        if (!strpos('to', $name) === 0) {
+            throw new Exception("Méthode inconnu");
+        }
+        $methodName = lcfirst(self::on($name)->replace('to', ''));
+        return (string)self::on($arguments[0])->{$methodName}();
+    }
+
+    public function camelCase(){
+        $needle = array('-', '_','?');
+        return $this->replace($needle, ' ')
+            ->ucwords()
+            ->replace(' ', '')
+            ->lcfirst();
+    }
 }
