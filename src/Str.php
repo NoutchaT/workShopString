@@ -16,18 +16,34 @@ class Str
 
 
     public function replace($search, $replace) {
-        $this->string = str_replace($search, $replace, $this->string);
+      $this->string = str_replace($search, $replace, $this->string);
         //$this->string = $string;
+        return $this;
+    }
+
+    public function pregreplace($search, $replace) {
+        $this->string = preg_replace($search, $replace, $this->string);
+        //$this->string = $string;
+        return $this;
+    }
+
+    public function strtolower() {
+        $this->string  = strtolower($this->string);
+        return $this;
+    }
+
+    public function ucwords() {
+        $this->string  = ucwords($this->string);
+        return $this;
+    }
+
+    public function lcfirst() {
+        $this->string  = lcfirst($this->string);
         return $this;
     }
 
     public function __toString() {
         return $this->string;
-    }
-
-    public function ucwords($focus) {
-        $this->string = ucwords($focus);
-        return $this;
     }
 
 }

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Exo_PHP-POO.iml" filepath="$PROJECT_DIR$/.idea/Exo_PHP-POO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../iim_symfony/.idea/iim_symfony.iml" filepath="$PROJECT_DIR$/../iim_symfony/.idea/iim_symfony.iml" />
     </modules>
   </component>
 </project>

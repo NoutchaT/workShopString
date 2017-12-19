@@ -2,5 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/Exo_PHP-PDO" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../iim_symfony" vcs="Git" />
   </component>
 </project>
