@@ -46,4 +46,18 @@ class Str
         return $this->string;
     }
 
+    public function camelCase(){
+        $needle = array('-', '_','?');
+        return $this->replace($needle, ' ')
+            ->strtolower()
+            ->ucwords()
+            ->replace(' ', '')
+            ->lcfirst();
+    }
+
+    public function toString(){
+
+        return $this->__toString();
+    }
+
 }

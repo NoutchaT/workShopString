@@ -7,13 +7,9 @@ use PHPUnit\Framework\TestCase;
 class StrTest extends TestCase
 {
 
-    public function testExo1()
+    public function testExo2()
     {
-        $string = (string) Str::on('my_string')
-            ->replace('_', ' ')
-            ->ucwords()
-            ->replace(' ', '')
-            ->lcfirst();
+        $string = Str::on('my_string')->camelCase()->toString();
 
         $this->assertSame('myString', $string);
     }
