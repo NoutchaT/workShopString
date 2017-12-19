@@ -85,4 +85,11 @@ class Str
             ->strtolower()
             ->replace('--', '-');
     }
+
+    public function studlyCase () {
+        $needle = array('-', '_','?');
+        return $this->replace($needle, ' ')
+            ->ucwords()
+            ->replace(' ', '');
+    }
 }
