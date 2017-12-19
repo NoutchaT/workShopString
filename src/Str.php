@@ -69,4 +69,12 @@ class Str
             ->replace(' ', '')
             ->lcfirst();
     }
+
+    public function snakeCase(){
+        $needle = array('-', ' ','?');
+        return $this->replace($needle, '_')
+            ->pregreplace('/(.)(?=[A-Z])/', '$1_')
+            ->strtolower()
+            ->replace('__', '_');
+    }
 }
