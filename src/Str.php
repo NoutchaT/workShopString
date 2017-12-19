@@ -16,30 +16,30 @@ class Str
 
 
     public function replace($search, $replace) {
-      $this->string = str_replace($search, $replace, $this->string);
+        $replaced = str_replace($search, $replace, $this->string);
         //$this->string = $string;
-        return $this;
+        return new self ($replaced);
     }
 
     public function pregreplace($search, $replace) {
-        $this->string = preg_replace($search, $replace, $this->string);
+        $pregreplaced = preg_replace($search, $replace, $this->string);
         //$this->string = $string;
-        return $this;
+        return new self ($pregreplaced);
     }
 
     public function strtolower() {
-        $this->string  = strtolower($this->string);
-        return $this;
+        $strtolowered  = strtolower($this->string);
+        return new self ($strtolowered);
     }
 
     public function ucwords() {
-        $this->string  = ucwords($this->string);
-        return $this;
+        $ucwordsed  = ucwords($this->string);
+        return new self ($ucwordsed);
     }
 
     public function lcfirst() {
-        $this->string  = lcfirst($this->string);
-        return $this;
+        $lcfirsted  = lcfirst($this->string);
+        return new self ($lcfirsted);
     }
 
     public function __toString() {
@@ -65,6 +65,7 @@ class Str
     public function camelCase(){
         $needle = array('-', '_','?');
         return $this->replace($needle, ' ')
+            ->strtolower()
             ->ucwords()
             ->replace(' ', '')
             ->lcfirst();
@@ -73,23 +74,40 @@ class Str
     public function snakeCase(){
         $needle = array('-', ' ','?');
         return $this->replace($needle, '_')
+            ->strtolower()
             ->pregreplace('/(.)(?=[A-Z])/', '$1_')
-            ->strtolower()
             ->replace('__', '_');
-    }
-
-    public function slugCase () {
-        $needle = array('_', ' ','?');
-        return $this->replace($needle, '-')
-            ->pregreplace('/(.)(?=[A-Z])/', '$1-')
-            ->strtolower()
-            ->replace('--', '-');
     }
 
     public function studlyCase () {
         $needle = array('-', '_','?');
         return $this->replace($needle, ' ')
+            ->strtolower()
             ->ucwords()
             ->replace(' ', '');
+    }
+
+    public function titleCase() {
+        $needle = array('-', '_','?');
+        return $this->replace($needle, ' ')
+            ->strtolower()
+            ->ucwords()
+            ->replace(' ', '');
+    }
+
+    public function slugCase () {
+        $needle = array('_', ' ','?');
+        return $this->replace($needle, '-')
+            ->strtolower()
+            ->pregreplace('/(.)(?=[A-Z])/', '$1-')
+            ->replace('--', '-');
+    }
+
+    public function kebabCase () {
+        $needle = array('_', ' ','?');
+        return $this->replace($needle, '-')
+            ->strtolower()
+            ->pregreplace('/(.)(?=[A-Z])/', '$1-')
+            ->replace('--', '-');
     }
 }
